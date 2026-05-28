@@ -1,5 +1,7 @@
 # gemini-web2api
 
+[English](README.md)
+
 将 Google Gemini 网页端转换为 OpenAI 兼容 API. 零认证, 零成本, 跨平台.
 
 ## 特性
@@ -80,6 +82,24 @@ gemini-3.5-flash-thinking@think=4   # 最浅
 ```bash
 python gemini_web2api.py --cookie-file cookie.txt
 ```
+
+### 如何获取 Cookie
+
+1. 打开 Chrome, 访问 [gemini.google.com](https://gemini.google.com) 并登录任意免费 Google 账号
+2. 打开开发者工具 (F12) → Application → Cookies → `https://gemini.google.com`
+3. 复制以下 cookie 值: `SID`, `HSID`, `SSID`, `APISID`, `SAPISID`, `__Secure-1PSID`
+4. 创建 `cookie.txt`, 格式如下:
+
+```
+SID=你的SID值; HSID=你的HSID值; SSID=你的SSID值; APISID=你的APISID值; SAPISID=你的SAPISID值; __Secure-1PSID=你的1PSID值
+```
+
+或使用 JSON 格式:
+```json
+{"cookie": "SID=xxx; HSID=xxx; SSID=xxx; APISID=xxx; SAPISID=xxx; __Secure-1PSID=xxx", "sapisid": "你的SAPISID值"}
+```
+
+**替代方案 (浏览器扩展)**: 使用任意 "Export Cookies" 扩展导出 `gemini.google.com` 的 cookie, 然后转换为上述单行格式.
 
 不需要付费订阅 — 免费 Google 账号即可.
 

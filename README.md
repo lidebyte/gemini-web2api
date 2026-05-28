@@ -1,5 +1,7 @@
 # gemini-web2api
 
+[中文文档](README_CN.md)
+
 Convert Google Gemini's web interface into an OpenAI-compatible API. Zero authentication, zero cost, cross-platform.
 
 ## Features
@@ -81,15 +83,23 @@ Anonymous access works for all models, but `gemini-3.1-pro` routes to Flash with
 python gemini_web2api.py --cookie-file cookie.txt
 ```
 
-Cookie file format (plain text):
+### How to get cookies
+
+1. Open Chrome, go to [gemini.google.com](https://gemini.google.com) and sign in with any free Google account
+2. Open DevTools (F12) → Application → Cookies → `https://gemini.google.com`
+3. Copy these cookie values: `SID`, `HSID`, `SSID`, `APISID`, `SAPISID`, `__Secure-1PSID`
+4. Create `cookie.txt` in this format:
+
 ```
-SID=xxx; HSID=xxx; SSID=xxx; APISID=xxx; SAPISID=xxx; ...
+SID=your_sid_value; HSID=your_hsid_value; SSID=your_ssid_value; APISID=your_apisid_value; SAPISID=your_sapisid_value; __Secure-1PSID=your_1psid_value
 ```
 
-Or JSON:
+Or use the JSON format:
 ```json
-{"cookie": "SID=xxx; ...", "sapisid": "xxx"}
+{"cookie": "SID=xxx; HSID=xxx; SSID=xxx; APISID=xxx; SAPISID=xxx; __Secure-1PSID=xxx", "sapisid": "your_sapisid_value"}
 ```
+
+**Alternative (browser extension)**: Use any "Export Cookies" extension to export cookies for `gemini.google.com` in Netscape format, then convert to the single-line format above.
 
 No paid subscription needed — a free Google account is sufficient.
 
